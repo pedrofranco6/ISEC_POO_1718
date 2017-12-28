@@ -1,0 +1,13 @@
+﻿  TPPOO.cpp
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\simulacao.h(5): error C2061: syntax error: identifier 'Mundo'
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\tppoo.cpp(10): error C2065: 'Mundo': undeclared identifier
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\tppoo.cpp(10): error C2065: 'm': undeclared identifier
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\tppoo.cpp(10): error C2061: syntax error: identifier 'Mundo'
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\tppoo.cpp(11): error C2065: 'm': undeclared identifier
+  Simulacao.cpp
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\simulacao.h(5): error C2061: syntax error: identifier 'Mundo'
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(7): error C2511: 'Simulacao::Simulacao(Mundo *)': overloaded member function not found in 'Simulacao'
+  c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\simulacao.h(3): note: see declaration of 'Simulacao'
+  Consola.cpp
+c:\users\pedro franco\desktop\poo1718\tp_poo\tp_poo\consola.cpp(235): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  Generating Code...
