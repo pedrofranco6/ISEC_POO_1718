@@ -14,11 +14,10 @@ Dez 2016 - Exemplo melhorado.
 
 
 
-#ifndef CONSOLA_H
-#define CONSOLA_H
-#define _WIN32_WINNT 0x0500
+#ifndef __CONSOLA_H__
+#define __CONSOLA_H__
 
-#include <Windows.h>
+#include <windows.h>
 
 class Consola {
 
@@ -126,4 +125,4 @@ public:
 	static void drawCircle(int X, int Y, int R, int Pen, int Fill);  // ##### Mingw ->Sem efeito (Não disponivel) #####
 };
 
-#endif /* CONSULA_H */
+#endif

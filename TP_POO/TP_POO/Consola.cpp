@@ -14,10 +14,9 @@ Dez 2016 - Exemplo melhorado.
 
 /* --> ver comentários em consola.h */
 
-#include "consola.h"
-//#include "stdafx.h"
+#include "consola.h"                      
+#include <windows.h>
 #include <stdio.h>
-#include<windows.h>
 
 // Definição das variáveis estáticas
 HANDLE Consola::hconsola = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -154,9 +153,9 @@ typedef DWORD(WINAPI * GetNumberOfConsoleFonts_)(); // kernel32!GetNumberOfConso
 void Consola::setTextSizeXP(int x, int y) {
 #ifdef _MSC_VER
 	// Obtém acesso às funções "secretas" do Windows
-	SetConsoleFont_ SetConsoleFont = reinterpret_cast<SetConsoleFont_>(GetProcAddress(GetModuleHandle("kernel32.dll"), "SetConsoleFont"));
-	GetConsoleFontInfo_ GetConsoleFontInfo = reinterpret_cast<GetConsoleFontInfo_>(GetProcAddress(GetModuleHandle("kernel32.dll"), "GetConsoleFontInfo"));
-	GetNumberOfConsoleFonts_ GetNumberOfConsoleFonts = reinterpret_cast<GetNumberOfConsoleFonts_>(GetProcAddress(GetModuleHandle("kernel32.dll"), "GetNumberOfConsoleFonts"));
+	SetConsoleFont_ SetConsoleFont = reinterpret_cast<SetConsoleFont_>(GetProcAddress(GetModuleHandle(L"kernel32.dll"), "SetConsoleFont"));
+	GetConsoleFontInfo_ GetConsoleFontInfo = reinterpret_cast<GetConsoleFontInfo_>(GetProcAddress(GetModuleHandle(L"kernel32.dll"), "GetConsoleFontInfo"));
+	GetNumberOfConsoleFonts_ GetNumberOfConsoleFonts = reinterpret_cast<GetNumberOfConsoleFonts_>(GetProcAddress(GetModuleHandle(L"kernel32.dll"), "GetNumberOfConsoleFonts"));
 
 	// Num de fontes
 	DWORD NumFonts = GetNumberOfConsoleFonts();
@@ -194,7 +193,7 @@ void Consola::setTextSizeXP(int x, int y) {
 //   o refresh da janela da consola não re-actualiza isto
 //   por esse motivo nao vale a pena optimizar certos aspectos destas funções
 // os alunos que gostarem de iformática podem pegar nisto
-//  e explorar e acrescentar
+//  e explorar e acrescentar 
 void Consola::drawLine(int x1, int y1, int x2, int y2, int cor) {
 #ifdef _MSC_VER
 	HDC DrawHDC;
