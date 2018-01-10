@@ -107,7 +107,7 @@ bool Interface::testaComandoSetUp(string linha){
 		return false;
 }
 
-void Interface::printInterface(Mundo * m, int mundo, int focol, int fococ) {
+string Interface::printInterface(Mundo * m, int mundo, int focol, int fococ) {
 	string linha;
 
 	Consola::setScreenSize(30, 112);
@@ -175,6 +175,8 @@ void Interface::printInterface(Mundo * m, int mundo, int focol, int fococ) {
 			cout << "comando invalido" << endl;
 		}
 	} while (testaComandoSimulacao(linha, mundo) == false);
+
+	return linha;
 }
 
 bool Interface::testaComandoSimulacao(string linha, int mundo) {

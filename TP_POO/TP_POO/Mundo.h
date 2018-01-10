@@ -18,6 +18,8 @@ public:
 	~Mundo();
 	void setTam(int tam);
 	int getTam();
+	void novoNinho(int energia, int linha, int coluna);
+	void novaFormiga( string tipo, int ninho);
 };
 
 #endif

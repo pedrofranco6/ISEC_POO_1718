@@ -16,7 +16,7 @@ public:
 	~Interface();
 	string setUp();
 	bool testaComandoSetUp(string linha);
-	void printInterface(Mundo * m, int mundo, int focol, int fococ);
+	string printInterface(Mundo * m, int mundo, int focol, int fococ);
 	bool testaComandoSimulacao(string linha, int mundo);
 	void printMapa(int tam);
 	void printFormigas(Mundo * m, int focol, int fococ);

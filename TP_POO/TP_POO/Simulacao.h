@@ -4,6 +4,9 @@
 
 #include <string>
 
+#include <iostream>
+using namespace std;
+
 #include "Interface.h"
 #include "Mundo.h"
 

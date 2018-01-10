@@ -9,10 +9,13 @@ using namespace std;
 
 class Ninho
 {
+	int identificador, energia, linha, coluna;
 	vector<Formiga *> formigas;
 public:
-	Ninho();
+	Ninho(int identificador, int energia, int linha, int coluna);
 	~Ninho();
+	int getLinha();
+	int getColuna();
 };
 
 #endif

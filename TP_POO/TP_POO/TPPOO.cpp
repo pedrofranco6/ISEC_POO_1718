@@ -4,7 +4,7 @@ int main()
 {
 	Simulacao sim;
 	
-	//sim.setUp();
+	sim.setUp();
 	sim.simulacao();
 	//sim.finalizacao();
 
