@@ -16,6 +16,15 @@ public:
 	~Ninho();
 	int getLinha();
 	int getColuna();
+	int getSizeFormigas();
+	int getLinhaFormiga(int formiga);
+	int getColunaFormiga(int formiga);
+	void novaCuidadora(int comunidade, int linha, int coluna);
+	void novaVigilante(int comunidade, int linha, int coluna);
+	void novaAssaltante(int comunidade, int linha, int coluna);
+	void novaExploradora(int comunidade, int linha, int coluna);
+	void addEnergia(int energia);
+	void addEnergiaFormiga(int formiga, int energia);
 };
 
 #endif

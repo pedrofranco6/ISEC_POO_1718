@@ -22,19 +22,45 @@ void Mundo::novoNinho(int energia, int linha, int coluna) {
 }
 
 void Mundo::novaFormiga(string tipo, int ninho) {
-	if (tipo.compare("c") == 0) {
+	int linha = 2, coluna = 2;
 
-	}
-	else if (tipo.compare("v") == 0) {
+	//gera e verifica a posicao aleatoria para a formiga
 
-	}
-	else if (tipo.compare("a") == 0) {
+	if (tipo.compare("c") == 0)
+		ninhos[ninho - 1]->novaCuidadora(ninho, linha, coluna);
+	else if (tipo.compare("v") == 0)
+		ninhos[ninho - 1]->novaVigilante(ninho, linha, coluna);
+	else if (tipo.compare("a") == 0)
+		ninhos[ninho - 1]->novaAssaltante(ninho, linha, coluna);
+	else if (tipo.compare("e") == 0)
+		ninhos[ninho - 1]->novaExploradora(ninho, linha, coluna);
+}
 
-	}
-	else if (tipo.compare("e") == 0) {
+void Mundo::novaFormiga(string tipo, int ninho, int linha, int coluna) {
+	if (tipo.compare("c") == 0)
+		ninhos[ninho - 1]->novaCuidadora(ninho, linha, coluna);
+	else if (tipo.compare("v") == 0)
+		ninhos[ninho - 1]->novaVigilante(ninho, linha, coluna);
+	else if (tipo.compare("a") == 0)
+		ninhos[ninho - 1]->novaAssaltante(ninho, linha, coluna);
+	else if (tipo.compare("e") == 0)
+		ninhos[ninho - 1]->novaExploradora(ninho, linha, coluna);
+}
 
-	}
-	else if (tipo.compare("s") == 0) {
-		//ainda nao faz nada
+void Mundo::novaMigalha(int energia, int linha, int coluna) {
+	Migalha * newMigalha = new Migalha(energia, linha, coluna);
+	migalhas.push_back(newMigalha);
+}
+
+void Mundo::addEnergiaNinho(int ninho, int energia){
+	ninhos[ninho - 1]->addEnergia(energia);
+}
+
+void Mundo::addEnergiaFormiga(int linha, int coluna, int energia) {
+	for (int i = 0; i < ninhos.size(); i++) {
+		for (int j=0; j<ninhos[i]->getSizeFormigas(); j++) {
+			if (ninhos[i]->getLinhaFormiga(j) == linha && ninhos[i]->getColunaFormiga(j) == coluna)
+				ninhos[i]->addEnergiaFormiga(j, energia);
+		}
 	}
 }

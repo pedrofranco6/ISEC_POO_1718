@@ -1,9 +1,40 @@
 ﻿  TPPOO.cpp
   Simulacao.cpp
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(26): error C2665: 'std::stoi': nenhuma das 2 sobrecargas pôde converter todos os tipos de argumentos
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(316): note: poderia ser 'int std::stoi(const std::wstring &,size_t *,int)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(174): note: ou       'int std::stoi(const std::string &,size_t *,int)'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(26): note: ao tentar corresponder a lista de argumentos '(int)'
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(28): error C2665: 'std::stoi': nenhuma das 2 sobrecargas pôde converter todos os tipos de argumentos
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(316): note: poderia ser 'int std::stoi(const std::wstring &,size_t *,int)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(174): note: ou       'int std::stoi(const std::string &,size_t *,int)'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(28): note: ao tentar corresponder a lista de argumentos '(int)'
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(30): error C2665: 'std::stoi': nenhuma das 2 sobrecargas pôde converter todos os tipos de argumentos
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(316): note: poderia ser 'int std::stoi(const std::wstring &,size_t *,int)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(174): note: ou       'int std::stoi(const std::string &,size_t *,int)'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(30): note: ao tentar corresponder a lista de argumentos '(int)'
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(32): error C2665: 'std::stoi': nenhuma das 2 sobrecargas pôde converter todos os tipos de argumentos
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(316): note: poderia ser 'int std::stoi(const std::wstring &,size_t *,int)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(174): note: ou       'int std::stoi(const std::string &,size_t *,int)'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(32): note: ao tentar corresponder a lista de argumentos '(int)'
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(34): error C2665: 'std::stoi': nenhuma das 2 sobrecargas pôde converter todos os tipos de argumentos
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(316): note: poderia ser 'int std::stoi(const std::wstring &,size_t *,int)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(174): note: ou       'int std::stoi(const std::string &,size_t *,int)'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(34): note: ao tentar corresponder a lista de argumentos '(int)'
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(36): error C2665: 'std::stoi': nenhuma das 2 sobrecargas pôde converter todos os tipos de argumentos
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(316): note: poderia ser 'int std::stoi(const std::wstring &,size_t *,int)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\string(174): note: ou       'int std::stoi(const std::string &,size_t *,int)'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(36): note: ao tentar corresponder a lista de argumentos '(int)'
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(39): error C2664: 'void std::basic_ifstream<char,std::char_traits<char>>::open(const char *,std::ios_base::open_mode)': não é possível converter um argumento 1 de 'int' em 'const std::experimental::filesystem::v1::path &'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(39): note: Razão: não é possível converter de 'int' para 'const std::experimental::filesystem::v1::path'
+  c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\simulacao.cpp(39): note: uso do tipo indefinido 'std::experimental::filesystem::v1::path'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\fstream(20): note: consulte a declaração de 'std::experimental::filesystem::v1::path'
+  Regra.cpp
   Ninho.cpp
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\ninho.cpp(50): error C2660: 'Formiga::addEnergia': função não recebe 0 argumentos
   Mundo.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(60): warning C4018: '<': incompatibilidade de signed/unsigned
+  Migalha.cpp
   Interface.cpp
-  TP_POO.vcxproj -> C:\Users\Pedro Franco\Desktop\POO1718\TP_POO\Debug\TP_POO.exe
-  TP_POO.vcxproj -> C:\Users\Pedro Franco\Desktop\POO1718\TP_POO\Debug\TP_POO.pdb (Partial PDB)
+  Formiga.cpp
+  Consola.cpp
+  Gerando Código...

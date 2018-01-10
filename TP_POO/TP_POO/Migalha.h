@@ -4,8 +4,9 @@
 
 class Migalha
 {
+	int energia, linha, coluna;
 public:
-	Migalha();
+	Migalha(int energia, int linha, int coluna);
 	~Migalha();
 };
 

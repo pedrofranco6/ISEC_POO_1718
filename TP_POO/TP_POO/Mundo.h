@@ -19,7 +19,11 @@ public:
 	void setTam(int tam);
 	int getTam();
 	void novoNinho(int energia, int linha, int coluna);
-	void novaFormiga( string tipo, int ninho);
+	void novaFormiga(string tipo, int ninho);
+	void novaFormiga(string tipo, int ninho, int linha, int coluna);
+	void novaMigalha(int energia, int linha, int coluna);
+	void addEnergiaNinho(int ninho, int energia);
+	void addEnergiaFormiga(int linha, int coluna, int energia);
 };
 
 #endif

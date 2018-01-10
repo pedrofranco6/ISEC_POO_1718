@@ -9,9 +9,22 @@ Formiga::~Formiga()
 {
 }
 
+int Formiga::getLinha() { return linha; }
 
-Cuidadora::Cuidadora()
+int Formiga::getColuna() { return coluna; }
+
+void Formiga::addEnergia(int energia) {
+	this->energia += energia;
+}
+
+Cuidadora::Cuidadora(int identificador, int comunidade, int linha, int coluna)
 {
+	this->energia = 100;
+	this->identificador = identificador;
+	this->comunidade = comunidade;
+	this->linha = linha;
+	this->coluna = coluna;
+	//vector de regras
 }
 
 Cuidadora::~Cuidadora()
@@ -19,8 +32,14 @@ Cuidadora::~Cuidadora()
 }
 
 
-Vigilante::Vigilante()
+Vigilante::Vigilante(int identificador, int comunidade, int linha, int coluna)
 {
+	this->energia = 150;
+	this->identificador = identificador;
+	this->comunidade = comunidade;
+	this->linha = linha;
+	this->coluna = coluna;
+	//vector de regras
 }
 
 Vigilante::~Vigilante()
@@ -28,8 +47,15 @@ Vigilante::~Vigilante()
 }
 
 
-Assaltante::Assaltante()
+Assaltante::Assaltante(int identificador, int comunidade, int linha, int coluna)
 {
+	this->energia = 80;
+	this->identificador = identificador;
+	this->comunidade = comunidade;
+	this->linha = linha;
+	this->coluna = coluna;
+	//vector de regras
+	//so 1 regra acontece
 }
 
 Assaltante::~Assaltante()
@@ -37,8 +63,14 @@ Assaltante::~Assaltante()
 }
 
 
-Exploradora::Exploradora()
+Exploradora::Exploradora(int identificador, int comunidade, int linha, int coluna)
 {
+	this->energia = 200;
+	this->identificador = identificador;
+	this->comunidade = comunidade;
+	this->linha = linha;
+	this->coluna = coluna;
+	//vector de regras
 }
 
 Exploradora::~Exploradora()

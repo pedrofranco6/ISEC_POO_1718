@@ -115,9 +115,9 @@ string Interface::printInterface(Mundo * m, int mundo, int focol, int fococ) {
 	Consola::setTextColor(15);
 	do {
 		printMapa(mundo);
-		printFormigas(m, focol, fococ);
+		/*printFormigas(m, focol, fococ);
 		printNinhos(m, focol, fococ);
-		printMigalhas(m, focol, fococ);
+		printMigalhas(m, focol, fococ);*/
 		Consola::gotoxy(70, 1);
 		cout << "----------------------------------------" << endl;
 		Consola::gotoxy(70, 2);
@@ -185,11 +185,7 @@ bool Interface::testaComandoSimulacao(string linha, int mundo) {
 	is >> cmd;
 	
 	if (cmd.compare("ninho") == 0) {
-		is >> aux1 >> aux2;
-		if (stoi(aux1) > mundo || stoi(aux2) > mundo)
-			return false;
-		else
-			return true;
+		return true;
 	}else if (cmd.compare("criaf") == 0) {
 		return true;
 	}else if (cmd.compare("cria1") == 0) {
