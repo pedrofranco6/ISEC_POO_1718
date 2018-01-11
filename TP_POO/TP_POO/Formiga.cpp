@@ -9,6 +9,8 @@ Formiga::~Formiga()
 {
 }
 
+int Formiga::getIdentificador() { return identificador; }
+
 int Formiga::getLinha() { return linha; }
 
 int Formiga::getColuna() { return coluna; }

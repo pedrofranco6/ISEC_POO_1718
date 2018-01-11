@@ -15,6 +15,7 @@ protected:
 public:
 	Formiga();
 	~Formiga();
+	int getIdentificador();
 	int getLinha();
 	int getColuna();
 	void addEnergia(int energia);

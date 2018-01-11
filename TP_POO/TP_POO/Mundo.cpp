@@ -16,6 +16,22 @@ int Mundo::getTam(){
 	return tamanho;
 }
 
+int Mundo::getSizeNinhos() { return ninhos.size(); }
+
+int Mundo::getSizeOfNinhoX(int ninho) { return ninhos[ninho]->getSizeFormigas(); }
+
+/*void Mundo::getDadosFormiga(int ninho, int formiga, int *identificador, int *linha, int *coluna) {
+	ninhos[formiga]->getDadosFormiga(formiga, identificador, linha, coluna);
+}*/
+
+int Mundo::getIdentificadorFormiga(int ninho, int formiga) { return ninhos[ninho]->getIdentificadorFormiga(formiga); }
+int Mundo::getLinhaFormiga(int ninho, int formiga) { return ninhos[ninho]->getLinhaFormiga(formiga); }
+int Mundo::getColunaFormiga(int ninho, int formiga) { return ninhos[ninho]->getColunaFormiga(formiga); }
+
+int Mundo::getIdentificadorNinho(int ninho) { return ninhos[ninho]->getIdentificador(); }
+int Mundo::getLinhaNinho(int ninho) { return ninhos[ninho]->getLinha(); }
+int Mundo::getColunaNinho(int ninho) { return ninhos[ninho]->getColuna(); }
+
 void Mundo::novoNinho(int energia, int linha, int coluna) {
 	Ninho * newNinho = new Ninho(ninhos.size()+1, energia, linha, coluna);
 	ninhos.push_back(newNinho);
@@ -58,9 +74,13 @@ void Mundo::addEnergiaNinho(int ninho, int energia){
 
 void Mundo::addEnergiaFormiga(int linha, int coluna, int energia) {
 	for (int i = 0; i < ninhos.size(); i++) {
-		for (int j=0; j<ninhos[i]->getSizeFormigas(); j++) {
+		for (int j = 0; j < ninhos[i]->getSizeFormigas(); j++) {
 			if (ninhos[i]->getLinhaFormiga(j) == linha && ninhos[i]->getColunaFormiga(j) == coluna)
 				ninhos[i]->addEnergiaFormiga(j, energia);
 		}
 	}
+}
+
+void Mundo::apagaNinho(int ninho) {
+	ninhos[ninho]->~Ninho();
 }

@@ -14,11 +14,14 @@ class Ninho
 public:
 	Ninho(int identificador, int energia, int linha, int coluna);
 	~Ninho();
+	int getIdentificador();
 	int getLinha();
 	int getColuna();
 	int getSizeFormigas();
+	int getIdentificadorFormiga(int formiga);
 	int getLinhaFormiga(int formiga);
 	int getColunaFormiga(int formiga);
+	//void getDadosFormiga(int formiga, int *identificador, int *linha, int *coluna);
 	void novaCuidadora(int comunidade, int linha, int coluna);
 	void novaVigilante(int comunidade, int linha, int coluna);
 	void novaAssaltante(int comunidade, int linha, int coluna);

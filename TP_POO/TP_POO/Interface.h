@@ -19,8 +19,7 @@ public:
 	string printInterface(Mundo * m, int mundo, int focol, int fococ);
 	bool testaComandoSimulacao(string linha, int mundo);
 	void printMapa(int tam);
-	void printFormigas(Mundo * m, int focol, int fococ);
-	void printNinhos(Mundo * m, int focol, int fococ);
+	void printFormigasNinhos(Mundo * m, int focol, int fococ);
 	void printMigalhas(Mundo * m, int focol, int fococ);
 	void finalizacao();
 };

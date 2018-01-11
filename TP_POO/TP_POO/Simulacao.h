@@ -16,7 +16,7 @@ class Simulacao
 	int mundo = 10, en = 100, pc = 50, vt = 1, mi = 10, me = 50, nm = 2;
 	int focol = 0, fococ = 0;
 	Interface f;
-	Mundo * m;
+	Mundo * m;	
 public:
 	Simulacao();
 	~Simulacao();

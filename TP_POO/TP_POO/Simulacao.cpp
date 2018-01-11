@@ -2,8 +2,8 @@
 
 Simulacao::Simulacao()
 {
+	m = new Mundo();
 }
-
 
 Simulacao::~Simulacao()
 {
@@ -72,7 +72,7 @@ void Simulacao::simulacao() {
 		stringstream is(linha);
 		is >> cmd;
 
-		if (cmd.compare("ninho") == 0) {
+		if (cmd.compare("ninho") == 0) {			
 			int linha, coluna;
 			is >> linha >> coluna;
 			m->novoNinho(en, linha, coluna);
@@ -113,7 +113,9 @@ void Simulacao::simulacao() {
 			//perguntar pelos destrutores
 		}
 		else if (cmd.compare("inseticida") == 0) {
-			//perguntar pelos destrutores
+			int ninho;
+			is >> ninho;
+			m->apagaNinho(ninho-1);
 		}
 		else if (cmd.compare("listamundo") == 0) {
 			

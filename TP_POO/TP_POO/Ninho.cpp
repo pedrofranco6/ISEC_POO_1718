@@ -12,15 +12,23 @@ Ninho::~Ninho()
 {
 }
 
+int Ninho::getIdentificador() { return identificador; }
 int Ninho::getLinha() { return linha; }
-
 int Ninho::getColuna() { return coluna; }
 
 int Ninho::getSizeFormigas() { return formigas.size(); }
 
+int Ninho::getIdentificadorFormiga(int formiga) { return formigas[formiga]->getIdentificador(); }
 int Ninho::getLinhaFormiga(int formiga) { return formigas[formiga]->getLinha(); }
-
 int Ninho::getColunaFormiga(int formiga) { return formigas[formiga]->getColuna(); }
+
+/*void Ninho::getDadosFormiga(int formiga, int *identificador, int *linha, int *coluna) {
+	*identificador = formigas[formiga]->getIdentificador();
+	*linha = formigas[formiga]->getLinha();
+	*coluna = formigas[formiga]->getColuna();
+}*/
+
+
 
 void Ninho::novaCuidadora(int comunidade, int linha, int coluna){
 	Cuidadora * newCuidadora = new Cuidadora(formigas.size() + 1, comunidade, linha, coluna);
@@ -47,5 +55,5 @@ void Ninho::addEnergia(int energia) {
 }
 
 void Ninho::addEnergiaFormiga(int formiga, int energia) {
-	formigas[formiga]->addEnergia();
+	formigas[formiga]->addEnergia(energia);
 }

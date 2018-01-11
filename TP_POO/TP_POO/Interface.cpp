@@ -13,7 +13,9 @@ Interface::~Interface()
 string Interface::setUp() {
 	string linha;
 
-	Consola::setScreenSize(30, 121);
+	Consola::setScreenSize(30, 112);
+	Consola::setBackgroundColor(0);
+	Consola::setTextColor(15);
 	Consola::clrscr();
 	do {
 		Consola::gotoxy(40, 2);
@@ -113,11 +115,11 @@ string Interface::printInterface(Mundo * m, int mundo, int focol, int fococ) {
 	Consola::setScreenSize(30, 112);
 	Consola::setBackgroundColor(0);
 	Consola::setTextColor(15);
+	
 	do {
 		printMapa(mundo);
-		/*printFormigas(m, focol, fococ);
-		printNinhos(m, focol, fococ);
-		printMigalhas(m, focol, fococ);*/
+		printFormigasNinhos(m, focol, fococ);
+		//printMigalhas(m, focol, fococ);
 		Consola::gotoxy(70, 1);
 		cout << "----------------------------------------" << endl;
 		Consola::gotoxy(70, 2);
@@ -261,12 +263,25 @@ void Interface::printMapa(int tam) {
 	Consola::setBackgroundColor(0);
 }
 
-void Interface::printFormigas(Mundo * m, int focol, int fococ) {
-	//asd
-}
+void Interface::printFormigasNinhos(Mundo * m, int focol, int fococ) {
+	//int identificador, linha, coluna;
 
-void Interface::printNinhos(Mundo * m, int focol, int fococ) {
-	//asd
+	Consola::setBackgroundColor(15);
+	if (m->getSizeNinhos() > 0) {
+		for (int i = 0; i < m->getSizeNinhos(); i++) {
+			Consola::setTextColor(i+1);
+			if (m->getSizeOfNinhoX(i) > 0) {
+				for (int j = 0; j < m->getSizeOfNinhoX(i); j++) {
+					Consola::gotoxy(m->getLinhaFormiga(i, j) + 2, m->getColunaFormiga(i, j) + 1);
+					cout << m->getIdentificadorFormiga(i, j);
+				}
+			}
+			Consola::gotoxy(m->getLinhaNinho(i) + 2, m->getColunaNinho(i) + 1);
+			cout << "N"/*m->getIdentificadorNinho(i)*/;
+		}
+	}
+	Consola::setBackgroundColor(0);
+	Consola::setTextColor(15);
 }
 
 void Interface::printMigalhas(Mundo * m, int focol, int fococ) {
