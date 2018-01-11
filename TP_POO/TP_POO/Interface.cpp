@@ -119,7 +119,7 @@ string Interface::printInterface(Mundo * m, int mundo, int focol, int fococ) {
 	do {
 		printMapa(mundo);
 		printFormigasNinhos(m, focol, fococ);
-		//printMigalhas(m, focol, fococ);
+		printMigalhas(m, focol, fococ);
 		Consola::gotoxy(70, 1);
 		cout << "----------------------------------------" << endl;
 		Consola::gotoxy(70, 2);
@@ -264,8 +264,6 @@ void Interface::printMapa(int tam) {
 }
 
 void Interface::printFormigasNinhos(Mundo * m, int focol, int fococ) {
-	//int identificador, linha, coluna;
-
 	Consola::setBackgroundColor(15);
 	if (m->getSizeNinhos() > 0) {
 		for (int i = 0; i < m->getSizeNinhos(); i++) {
@@ -285,13 +283,14 @@ void Interface::printFormigasNinhos(Mundo * m, int focol, int fococ) {
 }
 
 void Interface::printMigalhas(Mundo * m, int focol, int fococ) {
-	//asd
-}
-
-void Interface::finalizacao() {
-	Consola::clrscr();
-	Consola::gotoxy(1, 2);
-	cout << "Acabou" << endl;
-	Consola::gotoxy(1, 4);
-	system("pause");
+	Consola::setBackgroundColor(15);
+	Consola::setTextColor(0);
+	if (m->getSizeMigalhas() > 0) {
+		for (int i = 0; i < m->getSizeMigalhas(); i++) {
+			Consola::gotoxy(m->getLinhaMigalha(i) + 2, m->getColunaMigalha(i) + 1);
+			cout << "m";
+		}
+	}
+	Consola::setBackgroundColor(0);
+	Consola::setTextColor(15);
 }

@@ -22,7 +22,6 @@ public:
 	~Simulacao();
 	void setUp();
 	void simulacao();
-	void finalizacao();
 };
 
 #endif

@@ -11,7 +11,7 @@ class Formiga
 {
 protected:
 	int identificador, comunidade, energia, linha, coluna;
-	vector<Regra  *> regras;
+	vector<Regra *> regras;
 public:
 	Formiga();
 	~Formiga();

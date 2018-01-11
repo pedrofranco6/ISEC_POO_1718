@@ -8,6 +8,10 @@ class Migalha
 public:
 	Migalha(int energia, int linha, int coluna);
 	~Migalha();
+	int getLinha();
+	int getColuna();
+	int getEnergia();
+	void setEnergia(int energia);
 };
 
 #endif

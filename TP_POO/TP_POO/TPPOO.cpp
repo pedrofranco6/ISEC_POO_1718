@@ -6,7 +6,6 @@ int main()
 	
 	//sim.setUp();
 	sim.simulacao();
-	//sim.finalizacao();
 
     return 0;
 }

@@ -20,6 +20,11 @@ int Mundo::getSizeNinhos() { return ninhos.size(); }
 
 int Mundo::getSizeOfNinhoX(int ninho) { return ninhos[ninho]->getSizeFormigas(); }
 
+int Mundo::getSizeMigalhas() { return migalhas.size(); }
+
+int Mundo::getLinhaMigalha(int migalha) { return migalhas[migalha]->getLinha(); }
+int Mundo::getColunaMigalha(int migalha) { return migalhas[migalha]->getColuna(); }
+
 /*void Mundo::getDadosFormiga(int ninho, int formiga, int *identificador, int *linha, int *coluna) {
 	ninhos[formiga]->getDadosFormiga(formiga, identificador, linha, coluna);
 }*/

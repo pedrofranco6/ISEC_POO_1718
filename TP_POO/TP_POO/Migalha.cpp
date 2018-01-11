@@ -11,3 +11,8 @@ Migalha::Migalha(int energia, int linha, int coluna)
 Migalha::~Migalha()
 {
 }
+
+int Migalha::getLinha() { return linha; }
+int Migalha::getColuna() { return coluna; }
+int Migalha::getEnergia() { return energia; }
+void Migalha::setEnergia(int energia) { this->energia = energia; }

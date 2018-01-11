@@ -20,6 +20,9 @@ public:
 	int getTam();
 	int getSizeNinhos();
 	int getSizeOfNinhoX(int ninho);
+	int getSizeMigalhas();
+	int getLinhaMigalha(int migalha);
+	int getColunaMigalha(int migalha);
 	//void getDadosFormiga(int ninho, int formiga, int *identificador, int *linha, int *coluna);
 	int getIdentificadorFormiga(int ninho, int formiga);
 	int getLinhaFormiga(int ninho, int formiga);

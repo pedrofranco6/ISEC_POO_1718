@@ -62,6 +62,7 @@ void Simulacao::setUp(){
 			iss >> mundo >> en >> pc >> vt >> mi >> me >> nm;
 		}
 	} while (linha.compare("inicio") != 0);
+	//cria migalhas aleatorias
 }
 
 void Simulacao::simulacao() {
@@ -113,9 +114,9 @@ void Simulacao::simulacao() {
 			//perguntar pelos destrutores
 		}
 		else if (cmd.compare("inseticida") == 0) {
-			int ninho;
+			/*int ninho;
 			is >> ninho;
-			m->apagaNinho(ninho-1);
+			m->apagaNinho(ninho-1);*/
 		}
 		else if (cmd.compare("listamundo") == 0) {
 			
@@ -148,8 +149,4 @@ void Simulacao::simulacao() {
 	} while (linha.compare("sair") != 0);
 
 	system("pause");
-}
-
-void Simulacao::finalizacao() {
-	f.finalizacao();
 }

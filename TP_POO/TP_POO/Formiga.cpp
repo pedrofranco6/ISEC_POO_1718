@@ -26,7 +26,7 @@ Cuidadora::Cuidadora(int identificador, int comunidade, int linha, int coluna)
 	this->comunidade = comunidade;
 	this->linha = linha;
 	this->coluna = coluna;
-	//vector de regras
+	//regras.push_back();
 }
 
 Cuidadora::~Cuidadora()
