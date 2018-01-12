@@ -37,6 +37,8 @@ int Mundo::getIdentificadorNinho(int ninho) { return ninhos[ninho]->getIdentific
 int Mundo::getLinhaNinho(int ninho) { return ninhos[ninho]->getLinha(); }
 int Mundo::getColunaNinho(int ninho) { return ninhos[ninho]->getColuna(); }
 
+Migalha * Mundo::getMigalha(int migalha) { return migalhas[migalha]; }
+
 void Mundo::novoNinho(int energia, int linha, int coluna) {
 	Ninho * newNinho = new Ninho(ninhos.size()+1, energia, linha, coluna);
 	ninhos.push_back(newNinho);
@@ -124,5 +126,26 @@ void Mundo::agirFormigas() {
 				}
 			}
 		}
+	}
+}
+
+void Mundo::mataNinhos() {
+	for (int i = 0; i < ninhos.size(); i++) {
+		if (ninhos[i]->getEnergia() <= 0)
+			ninhos.erase(ninhos.begin() + i);
+	}
+}
+void Mundo::mataFormigas() {
+	for (int i = 0; i < ninhos.size(); i++) {
+		for (int j = 0; j < ninhos[i]->getSizeFormigas(); j++) {
+			if (ninhos[i]->getFormiga(j)->getEnergia() <= 0)
+				ninhos[i]->apagaFormiga(j);
+		}
+	}
+}
+void Mundo::mataMigalhas() {
+	for (int i = 0; i < migalhas.size(); i++) {
+		if (migalhas[i]->getEnergia() <= 0)
+			migalhas.erase(migalhas.begin() + i);
 	}
 }

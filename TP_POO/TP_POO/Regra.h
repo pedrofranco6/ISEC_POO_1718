@@ -53,6 +53,7 @@ public:
 };
 
 class RegraComeMigalha : public Regra {
+	int migalha;
 public:
 	virtual bool condicao(Mundo *m, Formiga *f);
 	virtual void acao(Mundo *m, Formiga *f);

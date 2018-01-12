@@ -10,14 +10,13 @@ Formiga::~Formiga()
 }
 
 int Formiga::getIdentificador() { return identificador; }
-
 int Formiga::getLinha() { return linha; }
-
 int Formiga::getColuna() { return coluna; }
-
 int Formiga::getVisao() { return visao; }
-
 int Formiga::getMovimento() { return movimento; }
+int Formiga::getEnergia() { return energia; }
+int Formiga::getComunidade() { return comunidade; }
+char Formiga::getTipo() { return tipo; }
 
 void Formiga::addEnergia(int energia) {
 	this->energia += energia;
@@ -33,6 +32,10 @@ void Formiga::fazRegras(Mundo *m) {
 }
 
 void Formiga::mover(int linha, int coluna) {
+	if (tipo == 'a')
+		energia = energia - 2 * (abs(linha - this->linha) + abs(coluna - this->coluna)) + 1;
+	else
+		energia = energia - abs(abs(linha - this->linha) + abs(coluna - this->coluna)) + 1;
 	this->linha = linha;
 	this->coluna = coluna;
 }
@@ -44,6 +47,7 @@ Cuidadora::Cuidadora(int identificador, int comunidade, int linha, int coluna)
 	this->movimento = 3;
 	this->identificador = identificador;
 	this->comunidade = comunidade;
+	this->tipo = 'c';
 	this->linha = linha;
 	this->coluna = coluna;
 	regras.push_back(new RegraFoge);
@@ -65,6 +69,7 @@ Vigilante::Vigilante(int identificador, int comunidade, int linha, int coluna)
 	this->movimento = 5;
 	this->identificador = identificador;
 	this->comunidade = comunidade;
+	this->tipo = 'v';
 	this->linha = linha;
 	this->coluna = coluna;
 	regras.push_back(new RegraProtege);
@@ -85,6 +90,7 @@ Assaltante::Assaltante(int identificador, int comunidade, int linha, int coluna)
 	this->movimento = 4;
 	this->identificador = identificador;
 	this->comunidade = comunidade;
+	this->tipo = 'a';
 	this->linha = linha;
 	this->coluna = coluna;
 	regras.push_back(new RegraAssalta);
@@ -106,6 +112,7 @@ Exploradora::Exploradora(int identificador, int comunidade, int linha, int colun
 	this->movimento = 8;
 	this->identificador = identificador;
 	this->comunidade = comunidade;
+	this->tipo = 'e';
 	this->linha = linha;
 	this->coluna = coluna;
 	regras.push_back(new RegraComeMigalha);

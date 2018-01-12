@@ -156,6 +156,10 @@ void Simulacao::simulacao() {
 			//m->agirNinhos();
 			//m->agirMigalhas();
 			m->agirFormigas();
+			//matar formigas, ninhos e migalhas se nao tiverem energia
+			m->mataNinhos();
+			m->mataFormigas();
+			m->mataMigalhas();
 		}
 	} while (linha.compare("sair") != 0);
 }

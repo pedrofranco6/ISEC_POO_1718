@@ -33,6 +33,7 @@ public:
 	int getIdentificadorNinho(int ninho);
 	int getLinhaNinho(int ninho);
 	int getColunaNinho(int ninho);
+	Migalha *getMigalha(int migalha);
 	void novoNinho(int energia, int linha, int coluna);
 	void novaFormiga(string tipo, int ninho);
 	void novaFormiga(string tipo, int ninho, int linha, int coluna);
@@ -42,6 +43,9 @@ public:
 	void apagaNinho(int ninho);
 	bool posicaoLivre(int linha, int coluna);
 	void agirFormigas();
+	void mataNinhos();
+	void mataFormigas();
+	void mataMigalhas();
 };
 
 #endif

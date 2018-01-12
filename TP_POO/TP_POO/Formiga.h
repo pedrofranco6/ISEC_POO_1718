@@ -15,15 +15,19 @@ class Formiga
 {
 protected:
 	int identificador, comunidade, energia, visao, movimento, linha, coluna;
+		char tipo;
 	vector<Regra *> regras;
 public:
 	Formiga();
 	~Formiga();
 	int getIdentificador();
+	int getEnergia();
+	int getComunidade();
 	int getLinha();
 	int getColuna();
 	int getVisao();
 	int getMovimento();
+	char getTipo();
 	void addEnergia(int energia);
 	void fazRegras(Mundo *m);
 	void mover(int linha, int coluna);

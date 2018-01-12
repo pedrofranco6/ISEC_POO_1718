@@ -23,7 +23,7 @@ public:
 	int getIdentificadorFormiga(int formiga);
 	int getLinhaFormiga(int formiga);
 	int getColunaFormiga(int formiga);
-	//void getDadosFormiga(int formiga, int *identificador, int *linha, int *coluna);
+	int getEnergia();
 	void novaCuidadora(int comunidade, int linha, int coluna);
 	void novaVigilante(int comunidade, int linha, int coluna);
 	void novaAssaltante(int comunidade, int linha, int coluna);
@@ -31,6 +31,7 @@ public:
 	void addEnergia(int energia);
 	void addEnergiaFormiga(int formiga, int energia);
 	Formiga *getFormiga(int formiga);
+	void apagaFormiga(int formiga);
 };
 
 #endif
