@@ -89,3 +89,40 @@ void Mundo::addEnergiaFormiga(int linha, int coluna, int energia) {
 void Mundo::apagaNinho(int ninho) {
 	ninhos[ninho]->~Ninho();
 }
+
+bool Mundo::posicaoLivre(int linha, int coluna) {
+	if (migalhas.size() > 0) {
+		for (int i = 0; i < migalhas.size(); i++) {
+			if (migalhas[i]->getLinha() == linha && migalhas[i]->getColuna() == coluna)
+				return false;
+		}
+	}
+
+	if (ninhos.size() > 0) {
+		for (int i = 0; i < ninhos.size(); i++) {
+			if (ninhos[i]->getLinha() == linha && ninhos[i]->getColuna() == coluna)
+				return false;
+			if (ninhos[i]->getSizeFormigas() > 0) {
+				for (int j = 0; j < ninhos[i]->getSizeFormigas(); j++) {
+					if (ninhos[i]->getLinhaFormiga(j) == linha && ninhos[i]->getColunaFormiga(j) == coluna)
+						return false;
+				}
+			}
+
+		}
+	}
+
+	return true;
+}
+
+void Mundo::agirFormigas() {
+	if (ninhos.size() > 0) {
+		for (int i = 0; i < ninhos.size(); i++) {
+			if (ninhos[i]->getSizeFormigas() > 0) {
+				for (int j = 0; j < ninhos[i]->getSizeFormigas(); j++) {
+					ninhos[i]->getFormiga(j)->fazRegras(this);
+				}
+			}
+		}
+	}
+}

@@ -9,10 +9,10 @@ Simulacao::~Simulacao()
 {
 }
 
-void Simulacao::setUp(){
+void Simulacao::setUp(){	
 	string linha, cmd;
-	
-	do {
+
+	do {	
 		linha = f.setUp();
 		stringstream is(linha);
 		is >> cmd;
@@ -62,11 +62,21 @@ void Simulacao::setUp(){
 			iss >> mundo >> en >> pc >> vt >> mi >> me >> nm;
 		}
 	} while (linha.compare("inicio") != 0);
-	//cria migalhas aleatorias
 }
 
 void Simulacao::simulacao() {
 	string linha, cmd;
+	int x, y;
+	m->setTam(mundo);
+
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < mundo*mundo*mi/100; i++) {
+		do {
+			x = rand() % mundo + 1;
+			y = rand() % mundo + 1;
+		} while (m->posicaoLivre(x, y) != true);
+		m->novaMigalha(me, x, y);
+	}
 
 	do {
 		linha = f.printInterface(m, mundo, focol, fococ);
@@ -79,12 +89,17 @@ void Simulacao::simulacao() {
 			m->novoNinho(en, linha, coluna);
 		}
 		else if (cmd.compare("criaf") == 0) {
-			int num, ninho;
+			int num, ninho, linha, coluna;
 			string tipo;
 			is >> num >> tipo >> ninho;
 
-			for (int i = 0; i < num; i++)
-				m->novaFormiga(tipo, ninho);
+			for (int i = 0; i < num; i++) {
+				do {
+					linha = rand() % mundo + 1;
+					coluna = rand() % mundo + 1;
+				} while (m->posicaoLivre(linha, coluna) != true);
+				m->novaFormiga(tipo, ninho, linha, coluna);
+			}
 		}
 		else if (cmd.compare("cria1") == 0) {
 			int ninho, linha, coluna;
@@ -137,16 +152,10 @@ void Simulacao::simulacao() {
 
 		}
 		else if (cmd.compare("tempo") == 0){
-			/*iteração*/
-			//m->agir();
-			/*void agir(){
-				for(int i=0; i<ninhos[].size(); i++){
-					asd
-				}
-			}*/
-			//if tiver um valor a frente do cmd passar varias iteraçoes com um int decrescente
+			//iteração
+			//m->agirNinhos();
+			//m->agirMigalhas();
+			m->agirFormigas();
 		}
 	} while (linha.compare("sair") != 0);
-
-	system("pause");
 }

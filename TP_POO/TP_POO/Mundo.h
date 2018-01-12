@@ -8,6 +8,9 @@ using namespace std;
 #include "Ninho.h"
 #include "Migalha.h"
 
+class Ninho;
+class Migalha;
+
 class Mundo
 {
 	int tamanho;
@@ -37,6 +40,8 @@ public:
 	void addEnergiaNinho(int ninho, int energia);
 	void addEnergiaFormiga(int linha, int coluna, int energia);
 	void apagaNinho(int ninho);
+	bool posicaoLivre(int linha, int coluna);
+	void agirFormigas();
 };
 
 #endif

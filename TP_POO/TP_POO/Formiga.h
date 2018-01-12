@@ -7,10 +7,14 @@
 using namespace std;
 #include "Regra.h"
 
+class Mundo;
+class Regra;
+class Ninho;
+
 class Formiga
 {
 protected:
-	int identificador, comunidade, energia, linha, coluna;
+	int identificador, comunidade, energia, visao, movimento, linha, coluna;
 	vector<Regra *> regras;
 public:
 	Formiga();
@@ -18,12 +22,15 @@ public:
 	int getIdentificador();
 	int getLinha();
 	int getColuna();
+	int getVisao();
+	int getMovimento();
 	void addEnergia(int energia);
+	void fazRegras(Mundo *m);
+	void mover(int linha, int coluna);
 };
 
 class Cuidadora : public Formiga
 {
-	int visao = 5, movimento = 3;
 public:
 	Cuidadora(int identificador, int comunidade, int linha, int coluna);
 	~Cuidadora();
@@ -31,7 +38,6 @@ public:
 
 class Vigilante : public Formiga
 {
-	int visao = 7, movimento = 5;
 public:
 	Vigilante(int identificador, int comunidade, int linha, int coluna);
 	~Vigilante();
@@ -39,7 +45,6 @@ public:
 
 class Assaltante : public Formiga
 {
-	int visao = 8, movimento = 4;
 public:
 	Assaltante(int identificador, int comunidade, int linha, int coluna);
 	~Assaltante();
@@ -47,7 +52,6 @@ public:
 
 class Exploradora : public Formiga
 {
-	int visao = 10, movimento = 8;
 public:
 	Exploradora(int identificador, int comunidade, int linha, int coluna);
 	~Exploradora();

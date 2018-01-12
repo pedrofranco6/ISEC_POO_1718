@@ -7,6 +7,8 @@
 using namespace std;
 #include "Formiga.h"
 
+class Formiga;
+
 class Ninho
 {
 	int identificador, energia, linha, coluna;
@@ -28,6 +30,7 @@ public:
 	void novaExploradora(int comunidade, int linha, int coluna);
 	void addEnergia(int energia);
 	void addEnergiaFormiga(int formiga, int energia);
+	Formiga *getFormiga(int formiga);
 };
 
 #endif

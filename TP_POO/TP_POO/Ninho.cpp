@@ -57,3 +57,5 @@ void Ninho::addEnergia(int energia) {
 void Ninho::addEnergiaFormiga(int formiga, int energia) {
 	formigas[formiga]->addEnergia(energia);
 }
+
+Formiga * Ninho::getFormiga(int formiga) { return formigas[formiga]; }
