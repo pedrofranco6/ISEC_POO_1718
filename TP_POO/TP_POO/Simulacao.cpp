@@ -126,21 +126,52 @@ void Simulacao::simulacao() {
 			m->addEnergiaFormiga(linha, coluna, energia);
 		}
 		else if (cmd.compare("mata") == 0) {
-			//perguntar pelos destrutores
+			int linha, coluna;
+			is >> linha >> coluna;
+			for (int i = 0; i < m->getSizeNinhos(); i++) {
+				for (int j = 0; j < m->getSizeOfNinhoX(i); j++) {
+					if (m->getNinho(i)->getFormiga(j)->getLinha() == linha && m->getNinho(i)->getFormiga(j)->getColuna() == coluna)
+						m->getNinho(i)->apagaFormiga(j);
+				}
+			}
 		}
 		else if (cmd.compare("inseticida") == 0) {
-			/*int ninho;
+			int ninho;
 			is >> ninho;
-			m->apagaNinho(ninho-1);*/
+			m->apagaNinho(ninho-1);
 		}
 		else if (cmd.compare("listamundo") == 0) {
-			
+			for (int i = 0; i < m->getSizeNinhos(); i++) {
+				cout << "Ninho: " << i + 1 << " / Energia: " << m->getNinho(i)->getEnergia() << " / Linha: " << m->getNinho(i)->getLinha() << " / Coluna: " << m->getNinho(i)->getColuna() << " / Formigas: " << m->getSizeOfNinhoX(i) << endl;
+			}
+			for (int i = 0; i < m->getSizeMigalhas(); i++) {
+				cout << "Migalha: " << i + 1 << " / Energia: " << m->getMigalha(i)->getEnergia() << " / Linha: " << m->getMigalha(i)->getLinha() << " / Coluna: " << m->getMigalha(i)->getColuna() << endl;
+			}
 		}
 		else if (cmd.compare("listaninho") == 0) {
-			
+			int ninho;
+			is >> ninho;
+			Ninho * n = m->getNinho(ninho - 1);
+			for (int i = 0; i < m->getSizeOfNinhoX(ninho - 1); i++) {
+				cout << "Formiga: " << n->getFormiga(i)->getIdentificador() << " / Energia: " << n->getFormiga(i)->getEnergia() << " / Linha:" << n->getFormiga(i)->getLinha() << " / Coluna: " << n->getFormiga(i)->getColuna() << endl;
+			}
 		}
 		else if (cmd.compare("listaposicao") == 0) {
-			
+			int linha, coluna;
+			is >> linha >> coluna;
+
+			for (int i = 0; i < m->getSizeNinhos(); i++) {
+				if(m->getNinho(i)->getLinha() == linha && m->getNinho(i)->getColuna() == coluna)
+					cout << "Ninho: " << i + 1 << " / Energia: " << m->getNinho(i)->getEnergia() << " / Formigas: " << m->getSizeOfNinhoX(i) << endl;
+				for (int j = 0; j < m->getSizeOfNinhoX(i); j++) {
+					if(m->getNinho(i)->getFormiga(j)->getLinha() == linha && m->getNinho(i)->getFormiga(j)->getColuna() == coluna)
+						cout << "Formiga: " << m->getNinho(i)->getFormiga(i)->getIdentificador() << " / Energia: " << m->getNinho(i)->getFormiga(i)->getEnergia() << endl;
+				}
+			}
+			for (int i = 0; i < m->getSizeMigalhas(); i++) {
+				if (m->getMigalha(i)->getLinha() == linha && m->getMigalha(i)->getColuna() == coluna)
+					cout << "Migalha: " << i + 1 << " / Energia: " << m->getMigalha(i)->getEnergia() << endl;
+			}
 		}
 		else if (cmd.compare("guarda") == 0) {
 
@@ -153,9 +184,9 @@ void Simulacao::simulacao() {
 		}
 		else if (cmd.compare("tempo") == 0){
 			//iteração
-			//m->agirNinhos();
-			//m->agirMigalhas();
 			m->agirFormigas();
+			m->agirNinhos(en, pc);
+			m->agirMigalhas();
 			//matar formigas, ninhos e migalhas se nao tiverem energia
 			m->mataNinhos();
 			m->mataFormigas();

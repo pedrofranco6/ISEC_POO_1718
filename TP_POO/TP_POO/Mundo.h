@@ -34,8 +34,8 @@ public:
 	int getLinhaNinho(int ninho);
 	int getColunaNinho(int ninho);
 	Migalha *getMigalha(int migalha);
+	Ninho *getNinho(int ninho);
 	void novoNinho(int energia, int linha, int coluna);
-	void novaFormiga(string tipo, int ninho);
 	void novaFormiga(string tipo, int ninho, int linha, int coluna);
 	void novaMigalha(int energia, int linha, int coluna);
 	void addEnergiaNinho(int ninho, int energia);
@@ -43,6 +43,8 @@ public:
 	void apagaNinho(int ninho);
 	bool posicaoLivre(int linha, int coluna);
 	void agirFormigas();
+	void agirNinhos(int en, int pc);
+	void agirMigalhas();
 	void mataNinhos();
 	void mataFormigas();
 	void mataMigalhas();

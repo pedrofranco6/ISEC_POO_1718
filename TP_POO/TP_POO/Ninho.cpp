@@ -10,6 +10,10 @@ Ninho::Ninho(int identificador, int energia, int linha, int coluna)
 
 Ninho::~Ninho()
 {
+	for (auto c : formigas) {
+		c->~Formiga();
+		delete c;
+	}
 }
 
 int Ninho::getIdentificador() { return identificador; }

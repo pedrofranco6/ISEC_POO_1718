@@ -6,6 +6,11 @@ Mundo::Mundo()
 
 Mundo::~Mundo()
 {
+	for (auto c : ninhos) {
+		c->~Ninho();
+		delete c;
+	}
+	ninhos.clear();
 }
 
 void Mundo::setTam(int tam){
@@ -38,25 +43,11 @@ int Mundo::getLinhaNinho(int ninho) { return ninhos[ninho]->getLinha(); }
 int Mundo::getColunaNinho(int ninho) { return ninhos[ninho]->getColuna(); }
 
 Migalha * Mundo::getMigalha(int migalha) { return migalhas[migalha]; }
+Ninho * Mundo::getNinho(int ninho) { return ninhos[ninho]; }
 
 void Mundo::novoNinho(int energia, int linha, int coluna) {
 	Ninho * newNinho = new Ninho(ninhos.size()+1, energia, linha, coluna);
 	ninhos.push_back(newNinho);
-}
-
-void Mundo::novaFormiga(string tipo, int ninho) {
-	int linha = 2, coluna = 2;
-
-	//gera e verifica a posicao aleatoria para a formiga
-
-	if (tipo.compare("c") == 0)
-		ninhos[ninho - 1]->novaCuidadora(ninho, linha, coluna);
-	else if (tipo.compare("v") == 0)
-		ninhos[ninho - 1]->novaVigilante(ninho, linha, coluna);
-	else if (tipo.compare("a") == 0)
-		ninhos[ninho - 1]->novaAssaltante(ninho, linha, coluna);
-	else if (tipo.compare("e") == 0)
-		ninhos[ninho - 1]->novaExploradora(ninho, linha, coluna);
 }
 
 void Mundo::novaFormiga(string tipo, int ninho, int linha, int coluna) {
@@ -89,8 +80,8 @@ void Mundo::addEnergiaFormiga(int linha, int coluna, int energia) {
 }
 
 void Mundo::apagaNinho(int ninho) {
-	ninhos[ninho]->~Ninho();
-}
+	ninhos.erase(ninhos.begin() + ninho);
+	ninhos[ninho]->~Ninho();}
 
 bool Mundo::posicaoLivre(int linha, int coluna) {
 	if (migalhas.size() > 0) {
@@ -128,6 +119,17 @@ void Mundo::agirFormigas() {
 		}
 	}
 }
+void Mundo::agirNinhos(int en, int pc) {
+	for (int i = 0; i < ninhos.size(); i++) {
+		if(ninhos[i]->getEnergia() > en*pc/100)
+			novaFormiga("c", i+1, ninhos[i]->getLinha(), ninhos[i]->getColuna());
+	}
+}
+void Mundo::agirMigalhas() {
+	for (int i = 0; i < migalhas.size(); i++)
+		migalhas[i]->setEnergia(migalhas[i]->getEnergia() - 1);
+}
+
 
 void Mundo::mataNinhos() {
 	for (int i = 0; i < ninhos.size(); i++) {

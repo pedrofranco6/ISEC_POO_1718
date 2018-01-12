@@ -8,6 +8,7 @@
 #include "Formiga.h"
 
 class Mundo;
+class Migalha;
 class Formiga;
 
 class Regra {
@@ -17,12 +18,14 @@ public:
 };
 
 class RegraFoge : public Regra {
+	Formiga * fi;
 public:
 	virtual bool condicao(Mundo *m, Formiga *f);
 	virtual void acao(Mundo *m, Formiga *f);
 };
 
 class RegraPersegue : public Regra {
+	Formiga * fi;
 public:
 	virtual bool condicao(Mundo *m, Formiga *f);
 	virtual void acao(Mundo *m, Formiga *f);
@@ -47,6 +50,7 @@ public:
 };
 
 class RegraProcuraMigalha : public Regra {
+	Migalha *mi;
 public:
 	virtual bool condicao(Mundo *m, Formiga *f);
 	virtual void acao(Mundo *m, Formiga *f);

@@ -1,10 +1,67 @@
 #include "Regra.h"
 
-bool RegraFoge::condicao(Mundo *m, Formiga *f) { return false; }
-void RegraFoge::acao(Mundo *m, Formiga *f) {}
+bool RegraFoge::condicao(Mundo *m, Formiga *f) { 
+	for (int i = 0; i < m->getSizeNinhos(); i++) {
+		if (m->getNinho(i)->getIdentificador() != f->getComunidade()) {
+			for (int j = 0; j < m->getSizeOfNinhoX(i); j++) {
+				if ((f->getLinha() - f->getVisao() < m->getNinho(i)->getFormiga(j)->getLinha()
+					&& m->getNinho(i)->getFormiga(j)->getLinha() < f->getLinha() + f->getVisao()) &&
+					(f->getColuna() - f->getVisao() < m->getNinho(i)->getFormiga(j)->getColuna()
+					&& m->getNinho(i)->getFormiga(j)->getColuna() < f->getColuna() + f->getVisao())) {
+					fi = m->getNinho(i)->getFormiga(j);
+					return true;
+				}
+			}
+		}
+	}
+	
+	return false;
+}
+void RegraFoge::acao(Mundo *m, Formiga *f) {
+	if (f->getLinha() - fi->getLinha() < 0) {
+		if (f->getColuna() - fi->getColuna() < 0)
+			f->mover(f->getLinha() + f->getMovimento(), f->getColuna() + f->getMovimento());
+		else
+			f->mover(f->getLinha() + f->getMovimento(), f->getColuna() - f->getMovimento());
+	} else {
+		if (f->getColuna() - fi->getColuna() < 0)
+			f->mover(f->getLinha() - f->getMovimento(), f->getColuna() + f->getMovimento());
+		else
+			f->mover(f->getLinha() - f->getMovimento(), f->getColuna() - f->getMovimento());
+	}
+}
 
-bool RegraPersegue::condicao(Mundo *m, Formiga *f) { return false; }
-void RegraPersegue::acao(Mundo *m, Formiga *f) {}
+bool RegraPersegue::condicao(Mundo *m, Formiga *f) {
+	for (int i = 0; i < m->getSizeNinhos(); i++) {
+		if (m->getNinho(i)->getIdentificador() != f->getComunidade()) {
+			for (int j = 0; j < m->getSizeOfNinhoX(i); j++) {
+				if ((f->getLinha() - f->getVisao() < m->getNinho(i)->getFormiga(j)->getLinha()
+					&& m->getNinho(i)->getFormiga(j)->getLinha() < f->getLinha() + f->getVisao()) &&
+					(f->getColuna() - f->getVisao() < m->getNinho(i)->getFormiga(j)->getColuna()
+						&& m->getNinho(i)->getFormiga(j)->getColuna() < f->getColuna() + f->getVisao())) {
+					fi = m->getNinho(i)->getFormiga(j);
+					return true;
+				}
+			}
+		}
+	}
+
+	return false;
+}
+void RegraPersegue::acao(Mundo *m, Formiga *f) {
+	if (f->getLinha() - fi->getLinha() < 0) {
+		if (f->getColuna() - fi->getColuna() < 0)
+			f->mover(f->getLinha() - f->getMovimento(), f->getColuna() - f->getMovimento());
+		else
+			f->mover(f->getLinha() - f->getMovimento(), f->getColuna() + f->getMovimento());
+	}
+	else {
+		if (f->getColuna() - fi->getColuna() < 0)
+			f->mover(f->getLinha() + f->getMovimento(), f->getColuna() - f->getMovimento());
+		else
+			f->mover(f->getLinha() + f->getMovimento(), f->getColuna() + f->getMovimento());
+	}
+}
 
 bool RegraAssalta::condicao(Mundo *m, Formiga *f) { return false; }
 void RegraAssalta::acao(Mundo *m, Formiga *f) {}
@@ -15,12 +72,38 @@ void RegraProtege::acao(Mundo *m, Formiga *f) {}
 bool RegraVaiParaNinho::condicao(Mundo *m, Formiga *f) { return false; }
 void RegraVaiParaNinho::acao(Mundo *m, Formiga *f) {}
 
-bool RegraProcuraMigalha::condicao(Mundo *m, Formiga *f) { return false; }
-void RegraProcuraMigalha::acao(Mundo *m, Formiga *f) {}
+bool RegraProcuraMigalha::condicao(Mundo *m, Formiga *f) {
+	for (int i = 0; i < m->getSizeMigalhas(); i++) {
+		if ((f->getLinha() - f->getVisao() < m->getMigalha(i)->getLinha()
+			&& m->getMigalha(i)->getLinha() < f->getLinha() + f->getVisao()) &&
+			(f->getColuna() - f->getVisao() < m->getMigalha(i)->getColuna()
+				&& m->getMigalha(i)->getColuna() < f->getColuna() + f->getVisao())) {
+			mi = m->getMigalha(i);
+			return true;
+		}
+	}
+
+	return false;
+}
+void RegraProcuraMigalha::acao(Mundo *m, Formiga *f) {
+	if (f->getLinha() - mi->getLinha() < 0) {
+		if (f->getColuna() - mi->getColuna() < 0)
+			f->mover(f->getLinha() - f->getMovimento(), f->getColuna() - f->getMovimento());
+		else
+			f->mover(f->getLinha() - f->getMovimento(), f->getColuna() + f->getMovimento());
+	}
+	else {
+		if (f->getColuna() - mi->getColuna() < 0)
+			f->mover(f->getLinha() + f->getMovimento(), f->getColuna() - f->getMovimento());
+		else
+			f->mover(f->getLinha() + f->getMovimento(), f->getColuna() + f->getMovimento());
+	}
+}
 
 bool RegraComeMigalha::condicao(Mundo *m, Formiga *f) { 
 	for (int i = 0; i < m->getSizeMigalhas(); i++) {
-		if (f->getLinha() == m->getMigalha(i)->getLinha() && f->getColuna() == m->getMigalha(i)->getColuna()) {
+		if ((f->getLinha() - 1 < m->getMigalha(i)->getLinha() && m->getMigalha(i)->getLinha() < f->getLinha() + 1) &&
+			(f->getColuna() - 1 < m->getMigalha(i)->getColuna() && m->getMigalha(i)->getColuna() < f->getColuna() + 1)) {
 			migalha = i;
 			return true;
 		}

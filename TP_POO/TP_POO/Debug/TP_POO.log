@@ -1,19 +1,12 @@
-﻿  Simulacao.cpp
-  Ninho.cpp
-  Mundo.cpp
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(83): warning C4018: '<': signed/unsigned mismatch
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(97): warning C4018: '<': signed/unsigned mismatch
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(104): warning C4018: '<': signed/unsigned mismatch
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(122): warning C4018: '<': signed/unsigned mismatch
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(133): warning C4018: '<': signed/unsigned mismatch
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(139): warning C4018: '<': signed/unsigned mismatch
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(147): warning C4018: '<': signed/unsigned mismatch
-  Formiga.cpp
-c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\formiga.cpp(26): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  TPPOO.cpp
-  Regra.cpp
-  Interface.cpp
+﻿  Mundo.cpp
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(74): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(88): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(95): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(113): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(123): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(129): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(135): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(141): warning C4018: '<': signed/unsigned mismatch
+c:\users\pedro franco.desktop-0us9thk\desktop\poo1718\tp_poo\tp_poo\mundo.cpp(149): warning C4018: '<': signed/unsigned mismatch
   TP_POO.vcxproj -> C:\Users\Pedro Franco.DESKTOP-0US9THK\Desktop\POO1718\TP_POO\Debug\TP_POO.exe
   TP_POO.vcxproj -> C:\Users\Pedro Franco.DESKTOP-0US9THK\Desktop\POO1718\TP_POO\Debug\TP_POO.pdb (Partial PDB)
